@@ -4,7 +4,6 @@ out/
 dist/
 .venv/
 .vscode-test/
-/edge/
 
 # Editor-local state
 .vscode/*
