@@ -1,9 +1,6 @@
 # Selected Text and ChatGPT to PDF
 
-This repository contains two related tools:
-
-- A VS Code extension that exports selected editor text or copied ChatGPT content to PDF.
-- An Edge extension in [`edge/`](./edge/) that captures the current ChatGPT conversation and formats it for saving through Edge's print dialog.
+This repository contains a VS Code extension that exports selected editor text or copied ChatGPT content to PDF.
 
 ## VS Code extension
 
@@ -27,13 +24,9 @@ To package a VSIX:
 npm run package
 ```
 
-## Edge extension
-
-See [`edge/README.md`](./edge/README.md) for local installation, testing, and publishing instructions. In brief, open `edge://extensions`, enable Developer mode, and choose **Load unpacked** to select the `edge` folder.
-
 ## Privacy
 
-The extensions process content locally. The Edge extension reads the current ChatGPT page only when its toolbar button is clicked; it does not send conversation content to a server.
+The extension processes content locally; it does not send conversation content to a server.
 
 ## License
 
