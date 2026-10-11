@@ -1,0 +1,103 @@
+{
+  "name": "selected-text-to-pdf",
+  "displayName": "Selected Text to PDF",
+  "description": "Convert selected text in VS Code into a clean PDF.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sreekavinraj/selected-text-to-pdf"
+  },
+  "license": "MIT",
+  "publisher": "sreekavinraj",
+  "engines": {
+    "vscode": ">=1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "selectedTextToPdf.export",
+        "title": "Convert Selected Text to PDF"
+      },
+      {
+        "command": "selectedTextToPdf.pdf",
+        "title": "pdf: Convert Selected Text to PDF"
+      },
+      {
+        "command": "selectedTextToPdf.testClipboard",
+        "title": "ChatGPT: Test Clipboard"
+      },
+      {
+        "command": "selectedTextToPdf.testClipboardHtml",
+        "title": "ChatGPT: Test HTML Clipboard"
+      },
+      {
+        "command": "selectedTextToPdf.exportChatGPTHtml",
+        "title": "ChatGPT: Export HTML Clipboard to PDF"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "selectedTextToPdf.export",
+          "when": "editorHasSelection",
+          "group": "navigation@100"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "selectedTextToPdf.export"
+        },
+        {
+          "command": "selectedTextToPdf.testClipboard"
+        },
+        {
+          "command": "selectedTextToPdf.testClipboardHtml"
+        },
+        {
+          "command": "selectedTextToPdf.exportChatGPTHtml"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Selected Text to PDF",
+      "properties": {
+        "selectedTextToPdf.defaultTitle": {
+          "type": "string",
+          "default": "Selected Text",
+          "description": "Default title shown at the top of generated PDFs."
+        },
+        "selectedTextToPdf.includePageNumbers": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include page numbers in generated PDFs."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "mathjax-full": "^3.2.1",
+    "pdfkit": "^0.20.2",
+    "svg-to-pdfkit": "^0.1.8"
+  },
+  "overrides": {
+    "@xmldom/xmldom": "0.9.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/pdfkit": "^0.13.8",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.1",
+    "typescript": "^5.7.2"
+  }
+}

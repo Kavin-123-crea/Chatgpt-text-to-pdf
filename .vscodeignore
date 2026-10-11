@@ -1,0 +1,31 @@
+# Source and tooling
+src/**
+.vscode/**
+**/*.ts
+**/*.map
+**/*.test.*
+**/*.spec.*
+**/*.log
+**/*.vsix
+
+# Root-level development artifacts
+fix-escapes.js
+generate-pdf.js
+tsconfig.json
+package-lock.json
+
+# Generated output not needed in the packaged extension
+**/*.pdf
+**/*.html
+**/*.svg
+
+# Keep the runtime files needed by the extension
+!out/**
+!node_modules/**
+!package.json
+!README.md
+!LICENSE
+!LICENSE.md
+!LICENSE.txt
+!scripts/**
+!clipboard.html
