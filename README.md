@@ -1,59 +1,40 @@
-<<<<<<< HEAD
-# Selected Text to PDF
+# Selected Text and ChatGPT to PDF
 
-A VS Code extension that converts the currently selected editor text into a PDF.
+This repository contains two related tools:
 
-## Features
+- A VS Code extension that exports selected editor text or copied ChatGPT content to PDF.
+- An Edge extension in [`edge/`](./edge/) that captures the current ChatGPT conversation and formats it for saving through Edge's print dialog.
 
-- Right-click selected text → **Convert Selected Text to PDF**
-- Command Palette support
-- Choose PDF title and save location
-- Preserves line breaks and whitespace
-- Basic Markdown heading and list formatting
-- Optional page numbers
-- Fully local; no API key or server required
+## VS Code extension
 
-## Run in VS Code
+### Requirements
 
-1. Open this folder in VS Code.
-2. Open the integrated terminal.
-3. Run:
+- Visual Studio Code 1.85 or later
+- Node.js and npm to build or package from source
+
+### Build and run
 
 ```bash
 npm install
 npm run compile
 ```
 
-4. Press `F5` to launch an Extension Development Host.
-5. Open a text file, select text, right-click, and choose **Convert Selected Text to PDF**.
+Open this folder in VS Code, press `F5` to launch an Extension Development Host, then select text and run **Convert Selected Text to PDF** from the editor context menu or Command Palette.
 
-## Package as a VSIX
-
-Install the VS Code Extension Manager once if needed:
+To package a VSIX:
 
 ```bash
-npm install
 npm run package
 ```
 
-This creates a `.vsix` file in the project folder.
+## Edge extension
 
-Install it from VS Code with **Extensions → ... → Install from VSIX...**.
-=======
-# Chatgpt-text-to-pdf
-VS Code extension that exports selected text or ChatGPT content to a PDF.
+See [`edge/README.md`](./edge/README.md) for local installation, testing, and publishing instructions. In brief, open `edge://extensions`, enable Developer mode, and choose **Load unpacked** to select the `edge` folder.
 
-Prerequisites to mention in the README
+## Privacy
 
-Visual Studio Code 1.85 or later
-Node.js and npm if someone wants to build or package the extension from source
-ChatGPT in a browser for the ChatGPT clipboard export feature; users copy the conversation content and run the relevant command in VS Code
-TypeScript is installed through the project’s npm dependencies, so it doesn’t need a separate setup step
+The extensions process content locally. The Edge extension reads the current ChatGPT page only when its toolbar button is clicked; it does not send conversation content to a server.
 
-A simple setup section could say:
+## License
 
-git clone https://github.com/sreekavinraj/selected-text-to-pdf.git
-cd selected-text-to-pdf
-npm install
-npm run compile
->>>>>>> 72bc9ea40ff29b4edc9632935a1d76368668d360
+MIT. See [`LICENSE`](./LICENSE).
