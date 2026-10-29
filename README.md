@@ -1,6 +1,6 @@
 # Selected Text and ChatGPT to PDF
 
-This repository contains a VS Code extension that exports selected editor text or copied ChatGPT content to PDF.
+This repository contains a VS Code extension and Chromium browser extensions that export selected text or ChatGPT conversations to PDF.
 
 ## VS Code extension
 
@@ -38,6 +38,26 @@ The [`edge/`](./edge/) folder contains a separate unpacked Edge extension for ex
 6. In the print page, click **Save as PDF** and choose Edge's **Save as PDF** destination.
 
 The extension reads the current ChatGPT page locally and does not send conversation content to a server. ChatGPT may leave older messages unloaded in very long conversations, so those messages might not appear in an export.
+
+## Chrome and Brave extensions
+
+The [`chrome/`](./chrome/) and [`brave/`](./brave/) folders contain Chromium-compatible builds of the same extension. They use the same service worker and support both full ChatGPT conversation export and selected-text export.
+
+### Install for local use
+
+1. Open `chrome://extensions` in Google Chrome or `brave://extensions` in Brave.
+2. Turn on **Developer mode**.
+3. Select **Load unpacked**.
+4. Choose the matching `chrome` or `brave` folder from this repository.
+5. Open [chatgpt.com](https://chatgpt.com/) and use the extension toolbar button or the **Convert selection to PDF** right-click action.
+
+To regenerate both browser folders from the verified Edge build, run:
+
+```bash
+node build-chromium-extensions.js
+```
+
+The browser builds are unpacked extensions for local installation. Chrome Web Store and Brave Web Store publication require separate developer accounts and store submissions.
 
 ## Privacy
 
